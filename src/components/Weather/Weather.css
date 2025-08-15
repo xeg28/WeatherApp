@@ -1,0 +1,17 @@
+.weather {
+  width: 100%;
+}
+
+.forecast {
+  background-color: var(--primary-color);
+  width: 450px;
+  margin: 10px auto;
+  padding: 25px 25px; 
+  border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+  .forecast {
+    width: 90vw;
+  }
+}
