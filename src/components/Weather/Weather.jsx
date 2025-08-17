@@ -2,10 +2,12 @@ import { useLocation } from "react-router-dom";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ForecastDay from "../ForecastDay/ForecastDay";
 import './Weather.css';
+
 function Weather() {
   const location = useLocation();
-  const forecast = location.state?.forecast;
+  var forecast = location.state?.forecast;
   console.log(forecast);
+
   return (
     <div className="weather">
       <WeatherCard 
@@ -14,11 +16,18 @@ function Weather() {
         day={forecast.forecast.forecastday[0].day}/>
 
       <div className="forecast">
-        {forecast.forecast.forecastday.map((day, index) => {
+        {!forecast.isDateRange && forecast.forecast.forecastday.map((day, index) => {
           return <div key={`forecast-day-${index}`}>
-              <ForecastDay day={day.day} date={day.date}/>
+              <ForecastDay day={day.day} date={day.date} showDate={false}/>
             </div>;
         })}
+
+        {forecast.isDateRange && forecast.dateRange.forecastday.map((day, index) => {
+          return <div key={`forecast-day-${index}`}>
+              <ForecastDay day={day.day} date={day.date} showDate={true}/>
+            </div>;
+        })
+        }
       </div>
     </div>
   )

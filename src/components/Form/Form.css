@@ -24,6 +24,56 @@ input[type="text"] {
   border-radius: 5px;
 }
 
+.dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.date-input {
+  display: flex;
+  gap: .5em;
+  flex-direction: column;
+}
+
+.date-input input[type="date"] {
+  color-scheme: dark;
+  position: relative;
+  height: 45px;
+  border: 2px solid var(--border-color);
+  padding: 5px;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  border-radius: 5px;
+  width: 100%;
+}
+
+.checkbox label {
+  position: relative;
+  display: inline-block;
+  height: 45px;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 5px;
+  border-radius: 5px;
+  align-content: center;
+}
+
+.checkbox label:has(input[type="checkbox"]:checked) {
+  background-color: var(--border-color);
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 45px;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
 .form-btn {
   height: 45px;
   background-color: var(--border-color);

@@ -10,11 +10,14 @@ function getDayOfWeek(date) {
   return days[day];
 }
 
-function ForecastDay({ day, date }) {
+function ForecastDay({ day, date, showDate }) {
 
   return (
     <div className="forecast-day">
-      <div>{getDayOfWeek(date)}</div>
+      <div>{!showDate ?
+        (<span>{getDayOfWeek(date)}</span>) :
+        (<span>{date}</span>)
+      }</div>
 
       <div className="forecast-info">
         <div className="rain-chance">
@@ -24,7 +27,7 @@ function ForecastDay({ day, date }) {
         <div className='forecast-condition'>
           <img src={day.condition.icon} alt="condition" />
         </div>
-        <div>
+        <div className='forecast-temp'>
           <span>&uarr;{Math.round(day.maxtemp_f)}&deg; &darr;{Math.round(day.mintemp_f)}&deg;</span>
         </div>
       </div>

@@ -9,16 +9,18 @@
 
 .rain-chance {
   font-size: small;
+  width: 50px;
 }
 
 .rain-chance img {
+  display: inline-block;
   height: 10px;
   filter: invert(.9);
   margin-right: 5px;
 }
 
 .forecast-condition {
-  height: 20px;
+  height: 25px;
 }
 
 .forecast-condition img {
@@ -28,5 +30,11 @@
 .forecast-info {
   display: flex;
   align-items: center;
-  gap: 15px;
+  justify-content: space-between;
+  gap: 10px
+}
+
+.forecast-temp {
+  width: 90px;
+  margin-left: 5px;
 }

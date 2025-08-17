@@ -1,0 +1,32 @@
+.navbar {
+  position: fixed;
+  top:0;
+  width: 100vw;
+  height: 70px;
+  background-color: color-mix(in srgb-linear, var(--background-color) 80%, transparent);
+  backdrop-filter: blur(2px);
+  align-content: center;
+}
+
+.nav-content {
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  gap: 1rem;
+}
+
+.nav-content a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: larger;
+  border-bottom: 2px solid transparent; /* reserve space */
+}
+
+.nav-content a:hover {
+  border-bottom-color: var(--text-primary); /* only color changes */
+}
+
+.nav-content a.active {
+  color: var(--text-secondary);
+  font-weight: bolder;
+}

@@ -1,0 +1,73 @@
+.database-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: #333;
+}
+
+.database-page h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.database-page ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.database-page li {
+  margin-bottom: 1.5rem;
+}
+
+/* Location card */
+.database-page > ul > li {
+  background: #fff;
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.database-page > ul > li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.database-page h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.25rem;
+  color: #0077cc;
+}
+
+.database-page p {
+  margin: 0 0 0.8rem 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Daily forecast list */
+.database-page ul ul {
+  border-left: 3px solid #0077cc;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+}
+
+.database-page ul ul li {
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+.database-page ul ul li:last-child {
+  border-bottom: none;
+}
+
+.database-page strong {
+  color: #444;
+}

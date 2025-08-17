@@ -1,0 +1,44 @@
+.info {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+.info-btn {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.info-btn img {
+  height: 100%;
+  filter: invert(.6);
+}
+
+.info-btn img:hover {
+  height: 100%;
+  filter: invert(1);
+}
+
+.info-text {
+  position: fixed;
+  backdrop-filter: blur(2px);
+  bottom: 45px; 
+  left: 35px;
+  padding: 10px;
+  background-color: color-mix(in srgb, var(--primary-color) 80%, transparent);
+  border-radius: 5px;
+  max-width: 300px;
+  text-wrap: pretty;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+}
+
+#name {
+  display: block;
+  font-size: large;
+  font-weight: bolder;
+  margin-bottom: .5em;
+}
