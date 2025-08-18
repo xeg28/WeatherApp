@@ -7,6 +7,8 @@
   --border-color: #4e4e4e;
 }
 
+
+
 * {
   box-sizing: border-box;
 }
@@ -17,6 +19,7 @@ img {
 
 body {
   background-color: var(--background-color);
+  overflow-y: scroll;
 }
 
 h2 {
@@ -47,6 +50,10 @@ h2 {
   border-radius: 50%;
   margin: 0 auto;
   animation: spin 1s linear infinite;
+}
+
+.spinner.dark {
+   border-top: 5px solid black;
 }
 
 

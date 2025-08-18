@@ -32,17 +32,21 @@ function Form() {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
 
-            setIsLoading(true);
-            const response = await dateRangeRequest(`${lat},${lon}`, startDate, endDate);
-            setIsLoading(false);
-            response['isDateRange'] = true;
-            let forecast = response;
-            if (response.error) {
-              alert(response.error.message);
-              return;
+            try {
+              setIsLoading(true);
+              const response = await dateRangeRequest(`${lat},${lon}`, startDate, endDate);
+              response['isDateRange'] = true;
+              let forecast = response;
+              insertToDB(response.location, startDate, endDate, response.dateRange.forecastday);
+              navigate('/weather', { state: { forecast } })
             }
-            insertToDB(response.location, startDate, endDate, response.dateRange.forecastday);
-            navigate('/weather', { state: { forecast } })
+            catch (e) {
+              alert("Error: " + e.message);
+            }
+            finally {
+              setIsLoading(false);
+            }
+
           },
           (err) => {
             alert("Can't access your location.\n" + err.message);
@@ -50,18 +54,21 @@ function Form() {
         );
       }
       else {
-        setIsLoading(true);
-        const response = await dateRangeRequest(formData.get('q'), startDate, endDate);
-        setIsLoading(false);
-        response['isDateRange'] = true;
-        let forecast = response;
+        try {
+          setIsLoading(true);
+          const response = await dateRangeRequest(formData.get('q'), startDate, endDate);
+          response['isDateRange'] = true;
+          let forecast = response;
 
-        if (response.error) {
-          alert(response.error.message);
-          return;
+          insertToDB(response.location, startDate, endDate, response.dateRange.forecastday);
+          navigate('/weather', { state: { forecast } })
         }
-        insertToDB(response.location, startDate, endDate, response.dateRange.forecastday);
-        navigate('/weather', { state: { forecast } })
+        catch (e) {
+          alert("error: " + e.message);
+        }
+        finally {
+          setIsLoading(false);
+        }
       }
 
     }

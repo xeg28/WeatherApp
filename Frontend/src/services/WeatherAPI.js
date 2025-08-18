@@ -13,6 +13,23 @@ function stripTime(date) {
   return d;
 }
 
+
+function cleanForecastDays(forecastdays) {
+  return forecastdays.map((day) => ({
+    date: day.date,
+    day: {
+      maxtemp_c: day.day.maxtemp_c,
+      mintemp_c: day.day.mintemp_c,
+      avgtemp_c: day.day.avgtemp_c,
+      maxtemp_f: day.day.maxtemp_f,
+      mintemp_f: day.day.mintemp_f,
+      avgtemp_f: day.day.avgtemp_f,
+      daily_chance_of_rain: day.day.daily_chance_of_rain, 
+      condition: day.day.condition, 
+    }
+  }));
+}
+
 export const dateRangeRequest = async (location, start, end) => {
   let today = new Date();
   let results = [];
@@ -22,7 +39,7 @@ export const dateRangeRequest = async (location, start, end) => {
   let data = await currentRequest.json();
 
   if(!currentRequest.ok) {
-    return data;
+    throw new Error(data.error.message);
   }
 
 
@@ -91,6 +108,6 @@ export const dateRangeRequest = async (location, start, end) => {
     }
 
   }
-  data['dateRange'] = {forecastday: results};
+  data['dateRange'] = {forecastday: cleanForecastDays(results)};
   return data;
 }
